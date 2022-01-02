@@ -60,7 +60,9 @@ void SegmentDisplay::refresh()
 {
     unsigned long tick = (1000000ul / freq) / digi_num;
     unsigned long now = micros();
-    if (now < last_refresh + tick) {
+    // micros() overflows every ~70 minutes. If `last_refresh + tick` doesn't
+    // yet overflow, but `now` does, we'll just want to refresh anyway.
+    if (now < last_refresh + tick && now > last_refresh) {
         return;
     }
 
