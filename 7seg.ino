@@ -1,7 +1,7 @@
 #include "7seg.h"
 
-const int segment_pins[8] = {6, 4, A0, 12, 11, 5, A1, 13};
-const int digit_pins[4]   = {10, 7, 8, 9};
+const int segment_pins[8] = {2, 5, 8, 10, 11, 3, 9, A5};
+const int digit_pins[4]   = {A4, 6, 7, 4};
 const int display_freq    = 300;
 
 SegmentDisplay display{CATHODE, segment_pins, digit_pins[0],
