@@ -31,6 +31,14 @@ public:
     0b11110110u
   };
 
+  /*
+  +-7-+
+ 2|   |6
+  +-1-+
+ 3|   |5
+  +-4-+ 0
+  */
+
   SegmentDisplay(bool cathode, const int segments[8],
                  int digit0, int digit1, int digit2, int digit3);
   SegmentDisplay(bool cathode, const int segments[8], int digit0, int digit1, int digit2);
