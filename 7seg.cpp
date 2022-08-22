@@ -78,9 +78,14 @@ void SegmentDisplay::refresh()
 
 bool SegmentDisplay::write_num(int n)
 {
-    if (n >= pow(10, digi_num) || n <= -pow(10, digi_num - 1)) {
-        return false;
-    }
+    #ifdef NDEBUG
+        constrain(n, -pow(10, digi_num - 1), pow(10, digi_num));
+    #else
+        if (n >= pow(10, digi_num) || n <= -pow(10, digi_num - 1)) {
+            return false;
+        }
+    #endif
+
     bool minus = n < 0;
     n = abs(n);
     int digit = 0;
